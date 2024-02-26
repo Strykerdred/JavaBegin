@@ -3,7 +3,7 @@ int getal;
 void setup(){
   size(500,500);
   
-getal = hetgetal(10, 30);
+getal = hetgetal(10, 30, 100, 20);
 println(getal);
 
 
@@ -18,8 +18,8 @@ void draw(){
   
 }
 
-int hetgetal (int getaleen, int getaltwee){
-  int antwoord = (getaleen + getaltwee)/2;
+int hetgetal (int getaleen, int getaltwee, int getaldrie, int getalvier){
+  int antwoord = (getaleen + getaltwee + getaldrie + getalvier)/2;
   return antwoord;
   
 }
