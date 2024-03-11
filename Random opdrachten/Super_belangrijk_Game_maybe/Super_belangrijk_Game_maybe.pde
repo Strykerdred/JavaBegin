@@ -14,7 +14,7 @@ void draw(){
   y = y + 3;
   x = x + 0;
   println("aanroep " + frameCount);
-  text ("Hallo", x,y);
+  text ("Boe", x,y);
   text ("Score:"+score,10,30);
   
   if (y > height) {
