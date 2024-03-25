@@ -1,14 +1,9 @@
-// TODO-
-// HEE-HO ON CLICK-screen
-//better bootup sound/pleasing + click/sound change
-// an actual fucking end ????
-
 import processing.sound.*;
 
 SoundFile heeho;
 int cookie;
 int currentUpgradeIndex = 0;
-int[] upgrades = new int [7];
+int[] upgrades = new int [6];
 
 int heehoasec1 = 1;
 int heehoasec2 = 1;
@@ -21,9 +16,8 @@ PImage Upgrade0;
 PImage Upgrade1;
 PImage Upgrade2;
 PImage Upgrade3;
-//PImage Upgrade4;
-//PImage Upgrade5;
-//PImage Upgrade6;
+PImage Upgrade4;
+PImage Upgrade5;
 
 
 
@@ -33,20 +27,19 @@ boolean trippleHeeHooPerSec = false;
 boolean clickThree = false;
 boolean clickFive = false;
 boolean jumpscare = false;
-boolean endgame= false;
-boolean[] activatedUpgrades = {false, false, false, false, false, false, false};
+boolean[] activatedUpgrades = {false, false, false, false, false, false};
 
 void setup(){
   size(800,800);
 
     //upgrade arrays
     upgrades[0] = 10;       //10 cookies = 1 hee-ho a sec
-    upgrades[1] = 10;       //100 cookies = 2 cookies a click
-    upgrades[2] = 10;       //500 cookies =  3 cookies a sec
-    upgrades[3] = 10;       //1000 cookies = 3 cookies a click
-    upgrades[4] = 10;       //idk yet maar = 5 cookies a click
+    upgrades[1] = 100;       //100 cookies = 2 cookies a click
+    upgrades[2] = 500;       //500 cookies =  3 cookies a sec
+    upgrades[3] = 1000;       //1000 cookies = 3 cookies a click
+    upgrades[4] = 2500;       //idk yet maar = 5 cookies a click
     upgrades[5] = 10;       //jumpscare
-    upgrades[6] = 10;       //The end
+
        
 
     //Images
@@ -56,12 +49,10 @@ void setup(){
     Upgrade1 = loadImage("Upgrade1.png");
     Upgrade2 = loadImage("Upgrade2.png");
     Upgrade3 = loadImage("Upgrade3.png");
-    //Upgrade4 = loadImage("Upgrade4.png");
-    //Upgrade5 = loadImage("Upgrade5.png");
-    //Upgrade6 = loadImage("Upgrade6.png");
+    Upgrade4 = loadImage("Upgrade4.png");
+    Upgrade5 = loadImage("Upgrade5.png");
 
    
-    //Bootup sound **WIP**
     heeho = new SoundFile(this, "sound.mp3");
     heeho.amp(0.5);
     heeho.play();
@@ -114,21 +105,15 @@ void draw(){
   }
          
   if (activatedUpgrades[4]) {
+     image(Upgrade4, 0, 550);
 
   }
   
   if (activatedUpgrades[5]) {
-
   }
-  
-  
-  if (activatedUpgrades[6]) {
 
-  }
-  
  }
 }
-
 
 
 void mousePressed() {
@@ -161,17 +146,13 @@ void mousePressed() {
   }
   
     if (activatedUpgrades [4] == true){
-   /// 
+   cookie +=3; 
   }
   
       if (activatedUpgrades [5] == true){
-   /// 
+   // Active above.
   }
-  
-      if (activatedUpgrades [6] == true){
-   /// 
-  }
-   
+
        //geluid
       float randomValue = random(1); 
       
