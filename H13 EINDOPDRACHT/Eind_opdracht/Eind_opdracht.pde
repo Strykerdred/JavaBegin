@@ -1,12 +1,12 @@
-//methode geluid?
-//
+//methode geluid? //// Niet gelukt
+
 
 import processing.sound.*;
 
 SoundFile heeho;
 int cookie;
 int currentUpgradeIndex = 0;
-int[] Upgrades = new int [6];
+int[] upgrades = new int [6];
 
 int heehoasec1 = 1;
 int heehoasec2 = 1;
@@ -30,12 +30,12 @@ void setup() {
   size(800, 800);
 
   //upgrade Arrays
-  Upgrades[0] = 10;       //10 cookies = 1 hee-ho a sec
-  Upgrades[1] = 100;       //100 cookies = 2 cookies a click
-  Upgrades[2] = 500;       //500 cookies =  3 cookies a sec
-  Upgrades[3] = 1000;       //1000 cookies = 3 cookies a click
-  Upgrades[4] = 2500;       //idk yet maar = 5 cookies a click
-  Upgrades[5] = 10;       //jumpscare
+  upgrades[0] = 10;       //10 cookies = 1 hee-ho a sec
+  upgrades[1] = 100;       //100 cookies = 2 cookies a click
+  upgrades[2] = 500;       //500 cookies =  3 cookies a sec
+  upgrades[3] = 1000;       //1000 cookies = 3 cookies a click
+  upgrades[4] = 2500;       //idk yet maar = 5 cookies a click
+  upgrades[5] = 10;       //jumpscare
 
 
 
@@ -106,8 +106,8 @@ void mousePressed() {
   if (mouseX >= 300 && mouseX <= 300 + Click.width && mouseY >= 300 && mouseY <= 300 + Click.height) { // x> grooter en x< dan 300 + foto breete
     cookie++;                                                                                         // en y > grooter en y<= + img hoogte
     println("Cookies: " + cookie);
-    for (int i = 0; i < 5; i++) {
-      if (cookie >= Upgrades[i]) {
+    for (int i = 0; i < upgrades.length; i++) {
+      if (cookie >= upgrades[i]) {
         activatedUpgrades[i] = true;
         image(Click, random(width), random(height)); // NO ITS A FEATURE
       }
@@ -124,17 +124,20 @@ void mousePressed() {
     if (activatedUpgrades [4] == true) {
       cookie +=3;
     }
+    clicksound();
+  }
+}
 
-    //geluid
-    float randomValue = random(1);
+                    //geluid on click
+void clicksound(){
+      float randomValue = random(1);
 
     if (randomValue <= 0.01) {
       heeho.amp(1.0);
-      println("we dead");
+      println("Loud");
     } else {
       heeho.amp(0.05);
     }
 
     heeho.play();
-  }
 }
